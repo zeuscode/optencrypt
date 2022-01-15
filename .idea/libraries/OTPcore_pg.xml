@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="OTPcore-pg">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android/libs/OTPcore-pg.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
