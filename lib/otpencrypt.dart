@@ -18,6 +18,9 @@ class OTPEncrypt {
 
   static Future<String?> calOTP(String str) async {
     String? code = await _channel.invokeMethod('calOTP', {'code':str});
+
     return code;
+
+
   }
 }

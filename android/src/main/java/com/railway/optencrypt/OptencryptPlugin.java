@@ -60,7 +60,7 @@ public class OptencryptPlugin implements FlutterPlugin, MethodCallHandler {
             String qrCode = call.argument("qrCode");
             Map decryptCode = new HashMap<>();
             try {
-                decryptCode = OTPcore.decryptQR(qrCode);
+                decryptCode = OTPcore.decryptQR(qrCode,0L);
             } catch (Exception e) {
                 decryptCode.put("msg", "二维码有误，解析异常");
                 decryptCode.put("code", "1");

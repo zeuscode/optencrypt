@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
   String content = "";
   String? token = "";
 
+
   @override
   void initState() {
     super.initState();
@@ -47,7 +48,8 @@ class _MyAppState extends State<MyApp> {
                     token = paraMap!['token'];
                     String? appCode = paraMap!['appCode'];
                     String? interval = paraMap!['interval'];
-                    String? msg = paraMap!['msg'];
+                    String? msg = paraMap!['errorlog'];
+                    print("====${msg}");
                     content =
                     "code=${code}==token=${token ??
                         ""}interval==${interval}msg==${msg}appCode=${appCode}";
@@ -60,13 +62,14 @@ class _MyAppState extends State<MyApp> {
             ),
             ElevatedButton(
               child: Text('生成口令'),
-              onPressed: () {
-                OTPEncrypt.calOTP(token!).then((value) {
-
-                  content  ="${value}===";
-                  setState(() {});
+              onPressed: () async{
+                try {
+                  String? value = await OTPEncrypt.calOTP(
+                      "CE99F7B8F6C299A3157DB1458C9BA8426745839E818E3DB87508640594443F4BD1234679855703F6F54970DBB94A6CE01833160");
+                  print("opt ${value}");
+                }catch(e){
+                  print("opt error ${e}");
                 }
-                );
               },
             ),
             Text(content)
