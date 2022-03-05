@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
             child: Column(
           children: [
             ElevatedButton(
-              child: Text('生成口令'),
+              child: Text('生成口令1'),
               onPressed: () {
                 OTPEncrypt.decryptQR("CE99F7B8F6C299A3157DB1458C9BA8426745839E818E3DB87508640594443F4BD1234679855703F6F54970DBB94A6CE01833160").then((value) {
                   Map<String, String>? paraMap = value;
@@ -61,12 +61,15 @@ class _MyAppState extends State<MyApp> {
               },
             ),
             ElevatedButton(
-              child: Text('生成口令'),
+              child: Text('生成口令2'),
               onPressed: () async{
                 try {
                   String? value = await OTPEncrypt.calOTP(
-                      "CE99F7B8F6C299A3157DB1458C9BA8426745839E818E3DB87508640594443F4BD1234679855703F6F54970DBB94A6CE01833160");
+                      "4EE4F5576A14748E9E27788147F7B2676B0383C8AD35E85DFD01433F38785B518123460");
                   print("opt ${value}");
+
+                  content = value??"null";
+                  setState(() {});
                 }catch(e){
                   print("opt error ${e}");
                 }
